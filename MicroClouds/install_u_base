@@ -1,0 +1,11 @@
+#!/bin/bash
+
+/usr/bin/apt-get --assume-yes install puppet git binutils unzip strace tcpdump
+
+cd /etc/puppet/modules
+
+git clone https://github.com/henk52/henk52-hieraconf.git hieraconf
+
+puppet apply /etc/puppet/modules/hieraconf/tests/init.pp
+
+# Also change the root password, to a known password.
